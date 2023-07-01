@@ -1,0 +1,324 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+
+{% comment %} carousel images {% endcomment %}
+<div class="container-fluid" id="carousel-image">
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="{% url 'fresh-vegetables' %}"><img src="/static/img/Main-Image-banner-new.jpg" class="carousel-image"
+            alt="carousel Banner Image-3"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'fresh-fruits' %}"><img src="/static/img/Main-Image-banner2.jpg" class="carousel-image"
+            alt="carousel Banner Image-2"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'fresh-vegetables' %}"><img src="/static/img/Main-Image-banner1.jpg" class="carousel-image"
+            alt="carousel Banner Image-1"></a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+{% comment %} carousel images closed {% endcomment %}
+
+<section>
+
+  <div class="features container col-15 " id="features">
+
+    <div class="container text-center col-12">
+      <div>
+        <h2 style="text-shadow:2.5px 1px 6px gray;font-size: 3rem;"> Choose from Variety of Products </h2>
+      </div><br>
+
+      <div class="container">
+        <div class="box-indexpage">
+          <div class="box">
+            <img class="container" src="static/img/Fruits-frame.jpg" alt="">
+            <h3 class="container">Fruits</h3>
+            <a href="/fresh-fruits" class="btn btn-secondary mb-4"><b>Explore More</b></a>
+          </div>
+
+
+          <div class="box">
+            <img class="container" src="static/img/Vegetable-frame.jpg" alt="">
+            <h3>Vegetables</h3>
+            <a href="/fresh-vegetables" class="btn btn-secondary mb-4"><b>Explore More</b></a>
+          </div>
+        </div>
+        {% comment %} <div class="box">
+          <img src="Easy Payment.jpg" alt="">
+          <h3>Easy Payment</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, distinctio.</p>
+          <a href="#" class="btn">Read More</a>
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+
+  {% comment %} Top Offers section {% endcomment %}
+  <div class="container text-center">
+    <div class="container d-flex col-7">
+      <hr width="110%">
+      <h4 class="container text-center ">Top Offers</h4>
+      <hr style="margin-left:1rem;" width="110%">
+    </div>
+
+    <br>
+
+    <div class="container col-12">
+      <a href="{% url 'dealsweek' %}"><img src="/static/img/Deals-of-the-week.jpg" class="deals-style" alt=""></a>
+      <a href="{% url 'bigpackdiscount' %}"><img src="/static/img/Big-pack-bigger-discounts.jpg" class="deals-style" alt=""></a>
+      <a href="{% url 'combo' %}"><img src="/static/img/Combos-you-cant-miss.jpg" class="deals-style" alt=""></a>
+      <a href="{% url 'the30Corner' %}"><img src="/static/img/The-30-corner.jpg" class="deals-style" alt=""></a>
+      <!-- CTRL+ALT+4 ==  RS SYMBOL-->
+    </div>
+
+    {% comment %} Top Offers section closed {% endcomment %}
+
+
+
+
+    {% comment %} Shop by category Section {% endcomment %}
+
+    <br><br><br><br>
+    <div class="container d-flex col-8">
+      <hr width="110%">
+      <h4 class="container text-center">shop by category</h4>
+      <hr style="margin-left:1rem;" width="110%">
+    </div>
+
+    <h2 class="container my-4" Style="font-size:350%; font-family: 'Pacifico', cursive;">Fruits &nbsp; </h2>
+    <br>
+
+
+
+    <div class="services-fruits-vege" id="services-fruits-vege">
+      <div class="container fruits-and-vegetable-box-container-part2">
+        {% for n in homeproductfruitdata %}
+        <div class="box">
+          <img src="/media/{{n.image}}" alt="" />
+          <h3 id="namepr{{n.product_id}}">{{n.product_name}}</h3>
+          <p></p>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <div class="price">₹{{n.price}} (kg)</div>
+          <!-- <span id="divpr{{n.product_id}}"> -->
+          <button type="button" id="pr{{n.product_id}}" class="btn btn-primary cart">ADD TO CART</button>
+          <!-- </span>  -->
+        </div>
+        {% endfor %}
+
+      <!-- <div>  
+        {% comment %} <div class="box">
+          <img src="/static/img/Bananas.jpg" alt="" />
+          <h3>Bananas</h3>
+          <p></p>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <div class="price">₹ 80 (1 PC)</div>
+          <a href="#" class="btn">ADD TO CART</a>
+        </div>
+
+        <div class="box">
+          <img src="/static/img/pineapple.jpg" alt="" />
+          <h3>Pineapple</h3>
+          <p></p>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <div class="price">₹ 80 (kg)</div>
+          <a href="#" class="btn">ADD TO CART</a>
+        </div>
+
+        <div class="box">
+          <img src="/static/img/blueberries.jpg" alt="" />
+          <h3>Blueberries</h3>
+          <p></p>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <div class="price">₹ 80 (500g)</div>
+          <a href="#" class="btn">ADD TO CART</a>
+        </div>
+
+        <div class="box">
+          <img src="/static/img/kiwi.jpg" alt="" />
+          <h3>Kiwi</h3>
+          <p></p>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <div class="price">₹ 90 (500g)</div>
+          <a href="#" class="btn">ADD TO CART</a>
+        </div>
+
+        <div class="box">
+          <img src="/static/img/litchi.jpg" alt="" />
+          <h3>Litchi</h3>
+          <p></p>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <div class="price">₹ 90 (500g)</div>
+          <a href="#" class="btn">ADD TO CART</a>
+        </div> {% endcomment %}
+    </div>  --> <!-- this is openable div functionality-->
+
+      </div><br><br>
+
+      <div class="container show-more">
+        <a href="fresh-fruits/"> show more →</a>
+      </div> <br><br>
+
+
+
+
+      <h2 align="center" Style="font-size:350%; font-family: 'Pacifico', cursive; margin-left:1rem;"> Vegetables </h2>
+
+      <br>
+
+      <div class="services-fruits-vege" id="services-fruits-vege">
+        <div class="container fruits-and-vegetable-box-container-part2">
+
+          {% for n in homeproductvegedata %}
+          <div class="box">
+            <img src="/media/{{n.image}}" alt="" />
+            <h3 id="nameprn{{n.vege_id}}">{{n.product_name}}</h3>
+            <p></p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half"></i>
+            </div>
+            <div class="price">₹{{n.price}} (kg)</div>
+            <button type="button" id="prn{{n.vege_id}}" class="btn btn-primary cart">ADD TO CART</button>
+          </div>
+          {% endfor %}
+
+          <!-- <div>
+          {% comment %} <div class="box">
+            <img src="/static/img/Cabbage.jpg" alt="" />
+            <h3>Cabbage</h3>
+            <p></p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half"></i>
+            </div>
+            <div class="price">₹ 40 (kg)</div>
+            <a href="#" class="btn">ADD TO CART</a>
+          </div>
+
+          <div class="box">
+            <img src="/static/img/coriender.jpg" alt="" />
+            <h3>Green Coriender</h3>
+            <p></p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half"></i>
+            </div>
+            <div class="price">₹ 20 (500g)</div>
+            <a href="#" class="btn">ADD TO CART</a>
+          </div>
+
+          <div class="box">
+            <img src="/static/img/Red-onion.jpg" alt="" />
+            <h3>Red Onion</h3>
+            <p></p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half"></i>
+            </div>
+            <div class="price">₹ 45 (kg)</div>
+            <a href="#" class="btn">ADD TO CART</a>
+          </div>
+
+          <div class="box">
+            <img src="/static/img/Garlic.jpg" alt="" />
+            <h3>Garlic</h3>
+            <p></p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half"></i>
+            </div>
+            <div class="price">₹ 45 (kg)</div>
+            <a href="#" class="btn">ADD TO CART</a>
+          </div>
+
+          <div class="box">
+            <img src="/static/img/ginger.jpg" alt="" />
+            <h3>Ginger</h3>
+            <p></p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half"></i>
+            </div>
+            <div class="price">₹ 55 (kg)</div>
+            <a href="#" class="btn">ADD TO CART</a>
+          </div> {% endcomment %}
+      </div> --> <!-- this is openable div functionality-->
+
+
+        </div><br><br>
+
+
+        <div class="container  show-more">
+          <a href="fresh-vegetables/"> show more →</a>
+        </div>
+
+
+
+</section>
+
+<br><br>
+
+{% comment %} Shop by category Section closed {% endcomment %}
+
+
+
+{% endblock %}

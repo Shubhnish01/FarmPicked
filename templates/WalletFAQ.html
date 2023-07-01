@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+  {% block section %}
+
+
+
+
+  {% comment %} side bar section {% endcomment %}
+
+<section class="d-flex" id="about-body-bg">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 320px;">
+    <a href="/aboutus" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi pe-none" width="40" height="100"></svg>
+      
+      <span class="fs-5">About Farm Picked</span>
+    </a>
+    <p class="about-questions">- What is Farm Picked </p>
+    <p class="about-questions">- Why Shop at Farm Picked ?</p>
+    <p class="about-questions">- Where we operate</p>
+
+    
+    <ul class="nav nav-pills flex-column mb-auto">
+      
+      <li>
+        <a href="/customer" class="nav-link text-white fs-5">
+          <svg class="bi pe-none me-2" width="16" height="16"></svg>
+          Customer Reviews
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'faqs' %}" class="nav-link text-white fs-5">
+          <svg class="bi pe-none me-2" width="16" height="16"></svg>
+          FAQs
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'privacy-policy' %}" class="nav-link text-white fs-5">
+          <svg class="bi pe-none me-2" width="16" height="16"></svg>
+          Privacy Policy
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'terms_conditions' %}" class="nav-link text-white fs-5">
+          <svg class="bi pe-none me-2" width="16" height="16"></svg>
+          Terms & Conditions
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'contactus' %}" class="nav-link text-white fs-5">
+          <svg class="bi pe-none me-2" width="16" height="16"></svg>
+          Contact Us
+        </a>
+      </li>
+    </ul>
+  </div>
+    
+    
+      <div class="container mx-5 my-3">
+        <p style="color:gray; font-size:16.5px; margin-left:0.2rem;padding-top:1rem;">HOME > Wallet FAQs</p>
+        <h1> Wallet FAQs <i class="fa fa-question-circle" style="font-size:46px;color:crimson;text-shadow:0.21px 0.21px 6px gray;"></i></h1>
+            <br>
+        <h4>How can I add money into Farm Picked Wallet?</h4>
+        <br>
+        <p id="about-description">You may add money in Farm Picked Wallet in following ways<br>
+
+          - Debit Cards<br>
+          - Net Banking<br>
+          - Any other acceptable payment methods visible on the Farm Picked payment page<br>
+        However, Cash on delivery, International Cards are not acceptable modes of payment for the top-up of Farm Picked Wallet.<br>
+          <hr>
+        
+          <h4>How much money can I add in my Farm Picked Wallet?</h4>
+          <br>
+          <p id="about-description">You can only add value up to Rs. 10,000 per month per user. Beyond that you may still receive your 
+            refunds to Farm Picked Wallet, but you will not be able to top-up it further. Also at any point in time you cannot have a balance of more 
+            than Rs 10,000 in your wallet. This is excluding any credits that you have received in this period.<br>
+            
+            <hr>
+
+            <h4>What are the benefits of using Farm Picked Wallet?</h4>
+          <br>
+          <p id="about-description">- Faster Check-out by using Farm Picked Wallet, no OTP or passwords are required<br>
+                                    - Faster refunds- these are credited within 24 hours to your Farm Picked Wallet<br>
+                                    - Detailed account tracking: You can track your spends and wallet activity in the My Wallet link available in the Farm Picked website<br>
+            
+            <hr>
+
+            <h4>What happens if I return the Items that I have bought with Farm Picked Wallet?</h4>
+          <br>
+          <p id="about-description">The refund value for these returned items shall be added to your Farm Picked Wallet.<br>
+            
+            
+            
+        <br><br><br><br>
+      
+        
+        
+      </div>
+      
+    
+</section>
+
+
+
+
+
+{% endblock %}
+
+
+</body>
+</html>

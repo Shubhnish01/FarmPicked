@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+<div class="container">
+    <div class="col my-4">
+        <h2> Step 1 - Farm Picked Express Checkout - Review Your Cart Items</h2><br>
+
+        <div>
+            <ol class="list-group list-group-numbered" id="items">
+               <!-- in this, the javascript is written for this tag below down by this id--> 
+            </ol>
+        </div>
+    </div>
+    <div class="col my-4" style="line-height:1;">
+        <h2> Step 2 - Enter Address & Other Details: </h2><br>
+        <form class="row" method="POST" action="{% url 'saveCheckout' %}" role="form">
+          {% if error %}
+            <div class="alert alert-danger" role="alert">
+                Please Enter The value
+            </div>
+            {% endif %}
+
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label for="inputname" class="form-label">Name</label>
+                <input type="name" class="form-control" id="inputname" name="name" placeholder="Name">
+              </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="example@abc.com">
+            </div>
+            
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Address</label>
+              <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">Address line 2</label>
+              <input type="text" class="form-control" id="inputAddress2" name="addressline2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" class="form-control" name="city" id="inputCity">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <input type="text" class="form-control" id="inputState" name="State" placeholder="Enter State">
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="inputZip" name="zip" placeholder="123456">
+            </div>
+            <div class="col-12">
+                <label for="inputPhone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="inputPhone" name="phone" placeholder="1234567890" pattern="[1-9]{1}[0-9]{9}">
+              </div>  
+              <div class="col" style="color:red;line-height:1.5;">*We currently deliver Fresh Farm Products in Meerut City. Available in other cities soon...
+              </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Place Order</button>
+            </div>
+          </form>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block js %} 
+<script>
+  if (localStorage.getItem('cart') == null) {
+		var cart = {};
+	}
+
+	else
+	{
+		cart = JSON.parse(localStorage.getItem('cart'));
+    
+	}
+  console.log(cart);
+  for(item in cart){
+    name = cart[item][1];
+    qty = cart[item][0];
+    mystr = `<li class="list-group-item d-flex justify-content-between align-items-start"><b>
+              ${name}</b>
+              <span class="badge bg-primary rounded-pill">${qty}</span>
+              </li>`
+    $('#items').append(mystr);   
+  }
+
+</script>
+
+{% endblock %}

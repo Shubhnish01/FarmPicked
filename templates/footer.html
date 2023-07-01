@@ -1,0 +1,141 @@
+
+
+{% comment %} add-to-cart functionality with javascript {% endcomment %}
+{% block js %}  
+<script>
+
+
+	// Find out the cart item from local storage 
+	if (localStorage.getItem('cart') == null) {
+		var cart = {};
+	}
+
+	else
+	{
+		cart = JSON.parse(localStorage.getItem('cart'));
+		document.getElementById('cart').innerHTML = Object.keys(cart).length;
+//    updateCart(cart);
+	}
+
+
+	// if the add to cart button is clicked, add/increment the item
+	$('.cart').click(function() {
+    console.log('clicked');
+		var idstr = this.id.toString();
+		console.log(idstr);
+		if (cart[idstr] != undefined) {
+      qty = cart[idstr][0] + 1;
+      
+		}
+		else
+		{
+      qty = 1;
+      name = document.getElementById('name'+idstr).innerHTML;
+			cart[idstr] = [qty , name];
+		}
+    console.log(cart);
+//    updateCart(cart);
+		localStorage.setItem('cart', JSON.stringify(cart));
+		document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    
+		
+	});
+
+
+//    function updateCart(cart){
+//    console.log(cart);
+//    for (var item in cart){
+//      document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class ='btn btn-primary minus'>-</button><span id='val" 
+//      + item + "''>" + cart[item] + "</span> <button id='plus" + item + "'class='btn btn-primary plus'> + </button>"; 
+//    }
+//  }
+//  
+//  
+//  // if plus or minus button is clicked , changed the cart as well as the display value
+//  $('.divpr').on("click","button.minus", function(){
+//    console.log("minus clicked");
+//    a = this.id.slice(6, );
+//    console.log(a);
+//    cart['pr'+ a] = cart['pr'+ a] -1;
+//    document.getElementById('valpr'+ a).innerHTML = cart['pr'+ a];
+//    updateCart(cart);
+//  });
+//
+//  $('.divpr').on("click","button.plus", function(){
+//    console.log("plus clicked");
+//    a = this.id.slice(6, );
+//    cart['pr'+ a] = cart['pr'+ a] +1;
+//    document.getElementById('valpr'+ a).innerHTML = cart['pr'+ a];
+//    updateCart(cart);
+//  });
+
+
+</script>
+{% endblock %}
+
+
+
+
+{% comment %} footer section {% endcomment %}
+<hr>
+<div class="bg-dark" style="color:white;">
+<div class="container">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Farm Picked</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'fresh-fruits' %}" class="nav-link p-0 text-secondary">Fresh Fruits</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'fresh-vegetables' %}" class="nav-link p-0 text-secondary">Fresh Vegetables</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'privacy-policy' %}" class="nav-link p-0 text-secondary">Privacy Policy</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'customer' %}" class="nav-link p-0 text-secondary">Customers Reviews</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'aboutus' %}" class="nav-link p-0 text-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Help</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{% url 'faqs' %}" class="nav-link p-0 text-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'contactus' %}" class="nav-link p-0 text-secondary">Contact Us</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'walletfaqs' %}" class="nav-link p-0 text-secondary">FP Wallet FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Get Social With Us</h5>
+        <div>
+          <a href="https://www.facebook.com/shubhnish.verma.5" class="fa fa-facebook" style="text-decoration:none;margin-top:1rem;padding:6px 12px;font-size:40px;color:wheat;"></a>
+          <a href="https://www.instagram.com/shubhnish_verma/" class="fa fa-instagram" style="text-decoration:none;margin-top:1rem;padding:6px 12px;font-size:40px;color:wheat;"></a>
+          <a href="https://wa.me/+918077468568" class="fa fa-whatsapp" style="text-decoration:none;margin-top:1rem;padding:6px 12px;font-size:40px;color:wheat;"></a>
+      </div>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Monthly digest of what's new and exciting from us.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-3 my-4 border-top">
+      <ul class="container">
+        <p><b>PAYMENT OPTION:&nbsp;</b>
+          <i><span class="dc_payment_icons_flat_54 dc_visa_flat" title="Visa Electron"></span></i>
+          <i><img src="/static/img/Paytm_logo.png" style="background-color:white;padding:0.5rem 1rem;width:9rem;border-radius:5%;"></i>
+          <i><img src="/static/img/PhonePe.png" style="width:10rem;border-radius:5%;"></i>
+        </p>
+      </ul>
+      <p style="white-space:pre;margin-top:2rem;">Farm Picked © 2023, Inc. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+</div>
+{% comment %} footer section closed {% endcomment %}

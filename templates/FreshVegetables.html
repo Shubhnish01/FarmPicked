@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+
+<section>
+	<div>
+		<a href="{% url 'combo' %}"><img src="/static/img/fruits-vege-bg2.jpg" alt="vegetable-Image"
+				class="fruit-vegetable-page-image" /></a>
+	</div>
+
+
+	<h2 align="center" style="font-size:350%; font-family: 'Pacifico', cursive;">Vegetables</h2>
+	<div class="services-fruits-vege container" id="services-fruits-vege">
+		<div class="fruits-and-vegetable-box-container container ">
+			
+			{% for n in freshvegedata %}
+			<div class="box container">
+				<img src="/media/{{n.image}}" alt="" />
+				<h3 id="nameprfreshvege{{n.product_id}}">{{n.product_name}}</h3>
+				<p>{{n.per_off}}</p>
+				<div class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-half"></i>
+				</div>
+				<div class="price">{{n.price}}</div>
+				<button id="prfreshvege{{n.product_id}}" type="button" class="btn btn-primary cart">ADD TO CART</button>
+			</div>
+			{% endfor %}
+
+
+		</div>
+		<br /><br /><br />
+	</div>
+
+	<div>
+		<a href=""><img src="/static/img/fruits-vege-bg3.jpg" alt="vegetable-Image"
+				class="fruit-vegetable-page-thin-image" /></a>
+	</div>
+
+
+	{% comment %} some cool offer{% endcomment %}
+
+	<div style="display:flex;margin-left:2rem;white-space:pre;">
+		<hr style="margin-left:41.7rem;margin-right:1rem;" width="10%">
+		<h4>Some Cool Offers</h4>
+		<hr style="margin-left:1rem;" width="10%">
+	</div>
+
+	<div class="slider-fruits-vege container" id="slider-fruits-vege">
+
+		<div class="box-container" style="line-height:2;">
+			<div class="owl-carousel owl-theme">
+
+				{% for n in somecooloffervegedata %}
+				<div class="box">
+					<img src="/media/{{n.image}}" width=200 height= 230 alt="" />
+					
+						<h3 id="nameprscov{{n.product_id}}">{{n.product_name}}</h3>
+						<p>{{n.per_off}}</p>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">{{n.price}}</div>
+						<button id="prscov{{n.product_id}}" type="button" class="btn btn-primary cart">ADD TO CART</button>
+					
+				</div>
+				{% endfor %}
+
+
+			</div>
+		</div>
+	</div>
+
+		<script>
+			$('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: -40,
+				nav: true,
+				dots: false,
+				autoplay: true,
+				autoplayTimeout: 1000,
+				autoplayHoverPause: true,
+				navText: [""],
+				responsive: {
+					0: {
+						items: 1,
+					},
+					768: {
+						items: 2,
+						margin: 10,
+					},
+					1000: {
+						items: 4.3,
+					}
+				}
+
+			})
+		</script>
+
+		<br><br><br>
+		<div class="container">
+			<div class="container d-flex col-8">
+				<hr width="110%">
+				<h4 class="container text-center">Top Deals Today</h4>
+				<hr style="margin-left:1rem;" width="110%">
+			</div>
+
+			<div class="services-fruits-vege container" id="services-fruits-vege">
+				<div class="fruits-and-vegetable-box-container-part2">
+
+					{% for n in topdealsvegedata %}
+					<div class="box">
+						<img src="/media/{{n.image}}" alt="" />
+						<h3 id="nameprtdtv{{n.product_id}}">{{n.product_name}}</h3>
+						<p>{{n.per_off}}</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">{{n.price}}</div>
+						<button id="prtdtv{{n.product_id}}" type="button" class="btn btn-primary cart">ADD TO CART</button>
+					</div>
+					{% endfor%}
+
+
+				</div>
+
+
+
+
+				<div class="container m-5 text-end mx-0">
+					<a href="#" class="go-on-top-button-fruits-vege-page"><b>Go On Top ↑</b></a>
+				</div><br><br>
+			</div>
+
+</section>
+
+
+
+{% endblock %}
+

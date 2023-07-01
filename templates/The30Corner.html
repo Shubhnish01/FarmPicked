@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+
+<section>
+
+<div class="container mt-2 mb-4">
+    <h2 align="center" style="font-size:300%;">₹30 On Selected Farm Products <img src="/static/img/Background.png" width=70></h2>
+</div>
+    
+
+            {% for n in the30data %}
+            <div class="container mt-3">
+                <div class="card mb-3 " style="max-width: 81rem;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="/media/{{n.image}}" class="img-fluid rounded-start" >
+                      </div>
+                      <div class="col-md-8">
+                          <div class="card-body">
+                              <h5 class="card-title" id="nameprcorner{{n.product_id}}">{{n.product_name}}</h5>
+                              <p class="card-text ">{{n.desc}}</p>
+                          <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half"></i>
+                          </div>                          
+                          <div class="price fs-2">{{n.price}}</div><br>
+                          <div class="pub_date">Published_On: {{n.pub_date}}</div>
+                          <button type="button" id="prcorner{{n.product_id}}" class="btn btn-primary cart">ADD TO CART</button>
+                          
+                          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  {% endfor %}
+
+
+</section>
+
+{% endblock %}

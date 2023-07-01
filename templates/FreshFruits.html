@@ -1,0 +1,413 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+
+<section>
+	<div>
+		<a href="{% url 'dealsweek' %}"><img src="/static/img/fruits-vege-bg.jpg" alt="fruits-Image"
+				class="fruit-vegetable-page-image" /></a>
+	</div>
+
+
+	<h2 align="center" style="font-size:350%; font-family: 'Pacifico', cursive;">Fruits</h2>
+	<div class="services-fruits-vege container" id="services-fruits-vege">
+		<div class="fruits-and-vegetable-box-container container">
+			
+			{% for n in freshfruitdata %}
+			<div class="box">
+				<img src="/media/{{n.image}}" alt="" />
+				<h3 id="nameprfreshfruit{{n.product_id}}">{{n.product_name}}</h3>
+				<p>{{n.per_off}}</p>
+				<div class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-half"></i>
+				</div>
+				<div class="price">{{n.price}}</div>
+				<button id="prfreshfruit{{n.product_id}}" type="button" class="btn btn-primary cart">ADD TO CART</button>
+			</div>
+			{% endfor %}
+
+
+		<!-- <div>
+			<div class="box">
+				<img src="/static/img/Grapes.jpg" alt="" />
+				<h3>Grapes</h3>
+				<p>Upto 45% off</p>
+				<div class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-half"></i>
+				</div>
+				<div class="price">₹ 70 (kg)</div>
+				<a href="#" class="btn">ADD TO CART</a>
+			</div>
+
+			<div class="box">
+				<img src="/static/img/kiwi.jpg" alt="" />
+				<h3>Kiwi</h3>
+				<p>Upto 45% off</p>
+				<div class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+				</div>
+				<div class="price">₹ 80 (2 PCs)</div>
+				<a href="#" class="btn">ADD TO CART</a>
+			</div>
+
+			<div class="box">
+				<img src="/static/img/strawberries.jpg" alt="" />
+				<h3>Strawberries</h3>
+				<div class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-half"></i>
+				</div>
+				<div class="price">₹ 70 (500g)</div>
+				<a href="#" class="btn">ADD TO CART</a>
+			</div>
+
+			<div class="box">
+				<img src="/static/img/Pomegranate.jpg" alt="" />
+				<h3>Pomegranate</h3>
+				<div class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-half"></i>
+				</div>
+				<div class="price">₹ 90 (kg)</div>
+				<a href="# " class="btn">ADD TO CART</a>
+			</div>
+		</div> --> <!-- this is openable div functionality-->
+
+		</div>
+
+		<br /><br /><br />
+	</div>
+
+	<div>
+		<a href=""><img src="/static/img/fruits-vege-bg4.jpg" alt="fruit-Image"
+				class="fruit-vegetable-page-thin-image" /></a>
+	</div>
+
+
+	{% comment %} some cool offer{% endcomment %}
+
+	<div style="display:flex;margin-left:2rem;white-space:pre;">
+		<hr style="margin-left:41.7rem;margin-right:1rem;" width="10%">
+		<h4>Some Cool Offers</h4>
+		<hr style="margin-left:1rem;" width="10%">
+	</div>
+
+	<div class="slider-fruits-vege container col" id="slider-fruits-vege">
+		<div class="box-container" style="line-height:2;">
+			<div class="owl-carousel owl-theme " >
+
+				{% for n in somecoolofferfruitsdata %}
+				<div class="box">
+					<img src="/media/{{n.image}}" alt="" width=200 height= 230 />
+					
+						<h3 id="nameprsco{{n.product_id}}">{{n.product_name}}</h3>
+						<p>{{n.per_off}}</p>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">{{n.price}}</div>
+						<button id="prsco{{n.product_id}}" type="button" class="btn btn-primary cart">ADD TO CART</button>
+					
+				</div>
+				{% endfor %}
+		<!-- <div>
+				<div class="box" id="box-image" style="background-image:url('/static/img/Black-Grapes.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Black Grapes</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 70 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				<div class="box" id="box-image" style="background-image:url('/static/img/Watermelon.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Watermelon</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 70 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+				<div class="box" id="box-image" style="background-image:url('/static/img/Papaya.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Papaya</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 70 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				<div class="box" id="box-image" style="background-image:url('/static/img/litchi.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Litchi</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 70 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				<div class="box" id="box-image" style="background-image:url('/static/img/guava.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Guava</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 70 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				{% comment %} <div class="box" id="box-image"
+					style="background-image:url('/static/img/Watermelon.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Watermelon</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 50 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div> {% endcomment %}
+
+				<div class="box" id="box-image" style="background-image:url('/static/img/Bananas.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Bananas</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 60 (12 PCs)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				<div class="box" id="box-image" style="background-image:url('/static/img/kiwi.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Kiwi</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 70 (2 PCs)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				{% comment %} <div class="box" id="box-image" style="background-image:url('/static/img/Potato.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Brocoli</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 50 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div>
+
+				<div class="box" id="box-image" style="background-image:url('/static/img/Potato.jpg');">
+					<div style="padding-top:15rem;">
+						<h3>Radish</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 50 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+				</div> {% endcomment %}
+				</div>
+
+		</div> -->
+
+			</div>
+		</div>
+	</div>
+
+		<script>
+			$('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: -40,
+				nav: true,
+				dots: false,
+				autoplay: true,
+				autoplayTimeout: 1000,
+				autoplayHoverPause: true,
+				navText: [""],
+				responsive: {
+					0: {
+						items: 1,
+					},
+					768: {
+						items: 2,
+						margin: 10,
+					},
+					1000: {
+						items: 4.2,
+					}
+				}
+
+			})
+		</script>
+
+		<br><br><br>
+		<div class="container">
+			<div class="container d-flex col-8">
+				<hr width="110%">
+				<h4 class="container text-center">Top Deals Today</h4>
+				<hr style="margin-left:1rem;" width="110%">
+			</div>
+
+			<div class="services-fruits-vege container" id="services-fruits-vege">
+				<div class="fruits-and-vegetable-box-container-part2">
+
+					{% for n in topdealsdata %}
+					<div class="box">
+						<img src="/media/{{n.image}}" alt="" />
+						<h3 id="namepr{{n.product_id}}">{{n.product_name}}</h3>
+						<p>{{n.per_off}}</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">{{n.price}}</div>
+						<button id="pr{{n.product_id}}" type="button" class="btn btn-primary cart">ADD TO CART</button>
+					</div>
+					{% endfor%}
+		<!-- <div>
+					<div class="box">
+						<img src="/static/img/Dragon-Fruit.jpg" alt="" />
+						<h3>Dragon Fruit</h3>
+						<p>Upto 45% off</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 80 (1 PC)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+
+					<div class="box">
+						<img src="/static/img/pineapple.jpg" alt="" />
+						<h3>Pineapple</h3>
+						<p>Upto 45% off</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 80 (kg)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+
+					<div class="box">
+						<img src="/static/img/blueberries.jpg" alt="" />
+						<h3>Blueberries</h3>
+						<p>Upto 45% off</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 80 (500g)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+
+					<div class="box">
+						<img src="/static/img/blackberries.jpg" alt="" />
+						<h3>Blackberries</h3>
+						<p>Upto 45% off</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 90 (500g)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+
+					<div class="box">
+						<img src="/static/img/raspberries.jpg" alt="" />
+						<h3>Raspberries</h3>
+						<p>Upto 45% off</p>
+						<div class="stars" style="line-height:0;">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half"></i>
+						</div>
+						<div class="price">₹ 90 (500g)</div>
+						<a href="#" class="btn">ADD TO CART</a>
+					</div>
+		</div>  -->
+
+				</div>
+
+
+
+
+				<div class="container m-5 text-end mx-0">
+					<a href="#" class="go-on-top-button-fruits-vege-page"><b>Go On Top ↑</b></a>
+				</div><br><br>
+			</div>
+
+</section>
+
+
+
+{% endblock %}

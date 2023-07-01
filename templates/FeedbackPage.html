@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block section %}
+
+
+<section class="feedback-bg">
+    <div class="container">
+    <h1 class="heading-feedback">Your Feedback Is More Valuable For Us</h1>
+    <form method="POST" action="{% url 'savefeedback' %}" class="feedback-form" role="form">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            Please Enter The value
+        </div>
+        {% endif %}
+
+        {% csrf_token %}
+        <div class="form-control ">
+            <label for="name" id="label-name">Name</label>
+            <input type="text" name="f_name" placeholder="Enter your name" />
+        </div>
+
+        <div class="form-control"> 
+            <label for="phone" id="label-phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}">
+        </div>
+  
+        {% comment %} <div class="form-control">
+            <label for="age" id="label-age">Age</label> {% endcomment %}
+ 
+
+        <div class="form-control">
+            <label for="comment">  Any comments or suggestions</label>
+            <textarea name="comment" id="comment" placeholder="Enter your comment here"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-lg btn-block sub-b">Submit</button>
+    </form>
+</div>
+</section>
+
+
+{% endblock  %}
+
